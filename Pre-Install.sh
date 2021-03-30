@@ -34,8 +34,9 @@ pacstrap /mnt base base-devel linux-zen linux-firmware nano sudo
 genfstab -u /mnt >> /mnt/etc/fstab
 
 
-## Coping script into the new system and running it.
+## Coping files into the new system and running it.
 
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 cp Post-Install.sh /mnt/Post-Install.sh
 arch-chroot /mnt ./Post-Install.sh
 

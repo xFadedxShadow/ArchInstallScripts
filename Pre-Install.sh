@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
 
 
-## Synchronizing System Clock.
+## Synchronizing System Clock. ( Silencing NTP / Causes Weird Issues )
 
 timedatectl set-ntp true 2>&1 >/dev/null
-timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)" 2>&1 >/dev/null
+timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
 hwclock --systohc
 
 
 ## Setting up mirrors list.
 
-reflector --country 'United States' --sort rate --age 8 --save /etc/pacman.d/mirrorlist 2>&1 >/dev/null
+reflector --country 'United States' --sort rate --age 8 --save /etc/pacman.d/mirrorlist
 
 
-## Wiping and Partitioning Disks and Formatting. (Block Size 16 MB )
+## Wiping and Partitioning Disks and Formatting. ( Block Size 16 MB )
 
-dd if=/dev/zero of=/dev/sda bs=16M status=progress && sync
-cfdisk /dev/sda
-mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda2
+dd if=/dev/zero of=/dev/vda bs=16M status=progress && sync
+cfdisk /dev/vda
+mkfs.fat -F32 /dev/vda1
+mkfs.ext4 /dev/vda2
 
 
 ## Mounting Disks and Creating Directories.
 
-mount /dev/sda2 /mnt
+mount /dev/vda2 /mnt
 mkdir -p /mnt/boot/efi
-mount /dev/sda1 /mnt/boot/efi
+mount /dev/vda1 /mnt/boot/efi
 
 
 ## Installing Base Arch Packages and Generating fstab.
@@ -36,7 +36,7 @@ genfstab -u /mnt >> /mnt/etc/fstab
 
 ## Coping script into the new system and running it.
 
-cp Post-Install.sh /mnt
+cp Post-Install.sh /mnt/Post-Install.sh
 arch-chroot /mnt ./Post-Install.sh
 
 

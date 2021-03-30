@@ -3,7 +3,7 @@
 
 ## Synchronizing System Clock. ( Silencing NTP / Causes Weird Issues )
 
-timedatectl set-ntp true 2>&1 >/dev/null
+timedatectl set-ntp true
 timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
 hwclock --systohc
 

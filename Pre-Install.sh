@@ -4,7 +4,7 @@
 ## Synchronizing System Clock. ( Silencing NTP / Causes Weird Issues )
 
 timedatectl set-ntp true
-timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)"
+timedatectl set-timezone America/New_York
 hwclock --systohc
 
 
@@ -31,7 +31,7 @@ mount /dev/vda1 /mnt/boot/efi
 ## Installing Base Arch Packages and Generating fstab.
 
 pacstrap /mnt base base-devel linux-zen linux-firmware nano sudo
-genfstab -u /mnt >> /mnt/etc/fstab
+genfstab -U /mnt >> /mnt/etc/fstab
 
 
 ## Coping files into the new system and running it.

@@ -18,7 +18,7 @@ echo -e '127.0.0.1       localhost\n::1             localhost\n127.0.1.1       n
 
 ## Installing System Packages and Configuring bootloader.
 
-pacman -S grub efibootmgr networkmanager network-manager-applet dialog mtools dosfstools linux-zen-headers bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth git reflector xdg-utils xdg-user-dirs
+pacman -S grub efibootmgr networkmanager network-manager-applet dialog mtools dosfstools linux-zen-headers bluez bluez-utils alsa-utils pulseaudio pulseaudio-bluetooth git reflector xdg-utils xdg-user-dirs bash-completion
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ARCH
 grub-mkconfig -o /boot/grub/grub.cfg
 
@@ -39,5 +39,5 @@ echo "Enter User Password!"
 passwd xfadedxshadow
 
 
-echo "Installation has been completed!"
+echo "Installation has been completed! ( Setup a Graphical Enviorment and a Display Server!"
 exit

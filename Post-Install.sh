@@ -33,6 +33,10 @@ systemctl enable bluetooth
 
 useradd -mG wheel xfadedxshadow
 EDITOR=nano visudo
+echo "Enter Root Password!"
+passwd
+echo "Enter User Password!"
+passwd xfadedxshadow
 
 
 echo "Installation has been completed!"

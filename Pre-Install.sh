@@ -3,14 +3,14 @@
 
 ## Synchronizing System Clock.
 
-timedatectl set-ntp true > /dev/null 2>&1
-timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)" > /dev/null 2>&1
+timedatectl set-ntp true 2>&1 >/dev/null
+timedatectl set-timezone "$(curl --fail https://ipapi.co/timezone)" 2>&1 >/dev/null
 hwclock --systohc
 
 
 ## Setting up mirrors list.
 
-reflector --country 'United States' --sort rate --age 8 --save /etc/pacman.d/mirrorlist > /dev/null 2>&1
+reflector --country 'United States' --sort rate --age 8 --save /etc/pacman.d/mirrorlist 2>&1 >/dev/null
 
 
 ## Wiping and Partitioning Disks and Formatting. (Block Size 16 MB )

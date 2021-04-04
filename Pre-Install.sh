@@ -15,17 +15,17 @@ reflector --country 'United States' --sort rate --age 8 --save /etc/pacman.d/mir
 
 ## Wiping and Partitioning Disks and Formatting. ( Block Size 16 MB )
 
-dd if=/dev/zero of=/dev/vda bs=16M status=progress && sync
-cfdisk /dev/vda
-mkfs.fat -F32 /dev/vda1
-mkfs.ext4 /dev/vda2
+dd if=/dev/zero of=/dev/sda bs=16M status=progress && sync
+cfdisk /dev/sda
+mkfs.fat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
 
 
 ## Mounting Disks and Creating Directories.
 
-mount /dev/vda2 /mnt
+mount /dev/sda2 /mnt
 mkdir -p /mnt/boot/efi
-mount /dev/vda1 /mnt/boot/efi
+mount /dev/sda1 /mnt/boot/efi
 
 
 ## Installing Base Arch Packages and Generating fstab.

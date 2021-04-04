@@ -35,7 +35,7 @@ useradd -mG wheel xfadedxshadow
 EDITOR=nano visudo
 echo "Enter Root Password!"
 passwd
-echo "Enter User Password!"
+echo "\nEnter User Password!"
 passwd xfadedxshadow
 
 

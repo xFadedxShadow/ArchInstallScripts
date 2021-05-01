@@ -39,5 +39,5 @@ echo "\nEnter User Password!"
 passwd xfadedxshadow
 
 
-echo "Installation has been completed! ( Setup a Graphical Enviorment and a Display Server!"
+echo "Installation has been completed! ( Setup a Graphical Enviorment, Display Server and a Login Manager! )"
 exit
